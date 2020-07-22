@@ -12,7 +12,6 @@ import java.util.Set;
 public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column (name = "book_id")
     private Integer bookId;
 
     private String title;
@@ -20,9 +19,9 @@ public class Book {
     @ManyToOne
     @JoinColumn (name = "authorId")
     private Author author;
-    @ManyToMany(cascade = { CascadeType.ALL })
-    @JoinTable (name = "Book_store", joinColumns = {@JoinColumn(name ="book_Id")},
-            inverseJoinColumns = {@JoinColumn(name="Id")})
+    @ManyToMany
+    @JoinTable (name= "join_books_bookstores", joinColumns = {@JoinColumn(name="bookId")},
+            inverseJoinColumns ={@JoinColumn(name = "bookStoreId")} )
    private Set<Bookstore> bookstores = new HashSet<>();
 
     public Book() {

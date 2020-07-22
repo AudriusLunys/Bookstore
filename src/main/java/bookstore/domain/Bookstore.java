@@ -9,14 +9,16 @@ import java.util.Set;
 public class Bookstore {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column (name = "Id")
+
     private Integer bookStoreId;
 
     private String name;
     private String address;
     private String email;
 
-    @ManyToMany(mappedBy = "bookstores")
+    @ManyToMany
+    @JoinTable (name= "join_books_bookstores", joinColumns = {@JoinColumn(name="bookStoreId")},
+            inverseJoinColumns ={@JoinColumn(name = "bookId")} )
     private Set<Book> books=new HashSet<>();
 
     public Bookstore() {
@@ -69,3 +71,4 @@ public class Bookstore {
         this.books = books;
     }
 }
+
