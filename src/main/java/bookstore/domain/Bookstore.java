@@ -16,7 +16,7 @@ public class Bookstore {
     private String address;
     private String email;
 
-    @OneToMany(mappedBy = "bookstore", cascade = CascadeType.REMOVE)
+    @ManyToMany(mappedBy = "bookstores")
     private Set<Book> books=new HashSet<>();
 
     public Bookstore() {

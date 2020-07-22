@@ -31,15 +31,15 @@ public class Main {
         bookstoreDao.addBookStore(bookstore1);
         bookstoreDao.addBookStore(bookstore2);
         // creating book
-        Book book1 = new Book("Zombiai",23.0,author1,bookstore1);
-        Book book2 = new Book("Betmanas",53.0,author1,bookstore1);
-        Book book3 = new Book("Vampyrai",53.50,author1,bookstore1);
-        Book book4 = new Book("Geguzio ziedai",13.90,author2,bookstore2);
-        Book book5 = new Book("Jusu sodai",33.50,author2,bookstore2);
-        Book book6 = new Book("Musu Girios",11.30,author2,bookstore2);
-        Book book7 = new Book("Avengers",123.50,author3,bookstore1);
-        Book book8 = new Book("Ratatuile",11.77,author3,bookstore2);
-        Book book9 = new Book("South",41.50,author3,bookstore2);
+        Book book1 = new Book("Zombiai",23.0,author1);
+        Book book2 = new Book("Betmanas",53.0,author1);
+        Book book3 = new Book("Vampyrai",53.50,author1);
+        Book book4 = new Book("Geguzio ziedai",13.90,author2);
+        Book book5 = new Book("Jusu sodai",33.50,author2);
+        Book book6 = new Book("Musu Girios",11.30,author2);
+        Book book7 = new Book("Avengers",123.50,author3);
+        Book book8 = new Book("Ratatuile",11.77,author3);
+        Book book9 = new Book("South",41.50,author3);
 
         //adding authors to database
         BookDao bookDao = new BookDao();
@@ -52,6 +52,8 @@ public class Main {
         bookDao.addBook(book7);
         bookDao.addBook(book8);
         bookDao.addBook(book9);
+
+
 
         // update author
         author1.setCountry("Suvalkai");

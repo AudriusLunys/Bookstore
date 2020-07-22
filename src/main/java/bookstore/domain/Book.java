@@ -4,6 +4,8 @@ import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "books")
@@ -18,17 +20,19 @@ public class Book {
     @ManyToOne
     @JoinColumn (name = "authorId")
     private Author author;
-    @ManyToOne
-    @JoinColumn (name = "storeId")
-    private Bookstore bookstore;
+    @ManyToMany(cascade = { CascadeType.ALL })
+    @JoinTable (name = "Book_store", joinColumns = {@JoinColumn(name ="book_Id")},
+            inverseJoinColumns = {@JoinColumn(name="Id")})
+   private Set<Bookstore> bookstores = new HashSet<>();
+
     public Book() {
     }
 
-    public Book(String title, Double price, Author author ,Bookstore bookstore) {
+    public Book(String title, Double price, Author author) {
         this.title = title;
         this.price = price;
         this.author = author;
-        this.bookstore=bookstore;
+
     }
 
     public String getTitle() {
@@ -53,25 +57,6 @@ public class Book {
 
     public void setAuthor(Author author) {
         this.author = author;
-    }
-
-    public Bookstore getBookstore() {
-        return bookstore;
-    }
-
-    public void setBookstore(Bookstore bookstore) {
-        this.bookstore = bookstore;
-    }
-
-    @Override
-    public String toString() {
-        return "Book{" +
-                "bookId=" + bookId +
-                ", title='" + title + '\'' +
-                ", price=" + price +
-                ", author=" + author +
-                ", bookstore=" + bookstore +
-                '}';
     }
 }
 
