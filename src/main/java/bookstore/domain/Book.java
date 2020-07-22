@@ -35,6 +35,14 @@ public class Book {
 
     }
 
+    public Integer getBookId() {
+        return bookId;
+    }
+
+    public void setBookId(Integer bookId) {
+        this.bookId = bookId;
+    }
+
     public String getTitle() {
         return title;
     }
@@ -57,6 +65,14 @@ public class Book {
 
     public void setAuthor(Author author) {
         this.author = author;
+    }
+
+    public Set<Bookstore> getBookstores() {
+        return bookstores;
+    }
+
+    public void setBookstores(Set<Bookstore> bookstores) {
+        this.bookstores = bookstores;
     }
 }
 

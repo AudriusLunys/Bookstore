@@ -22,10 +22,19 @@ public class Bookstore {
     public Bookstore() {
     }
 
-    public Bookstore(String name, String address, String email) {
+    public Bookstore(String name, String address, String email, Set<Book> books) {
         this.name = name;
         this.address = address;
         this.email = email;
+        this.books = books;
+    }
+
+    public Integer getBookStoreId() {
+        return bookStoreId;
+    }
+
+    public void setBookStoreId(Integer bookStoreId) {
+        this.bookStoreId = bookStoreId;
     }
 
     public String getName() {
@@ -50,5 +59,13 @@ public class Bookstore {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public Set<Book> getBooks() {
+        return books;
+    }
+
+    public void setBooks(Set<Book> books) {
+        this.books = books;
     }
 }
